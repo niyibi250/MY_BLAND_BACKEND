@@ -23,18 +23,19 @@
  const create_blog= async function(req:Request, res:Response)
  {
      try{
-         const varidate=create_blog_data_varidation(req.body)
-         if(varidate.error)
-         {
-            return res.status(404).json({msg:'the varidation did not go throught', varidate})
-         }
          
+        const varidate=create_blog_data_varidation(req.body)
+        if(varidate.error)
+        {
+           return res.status(404).json({msg:'the varidation did not go throught', varidate})
+        }
+        
         const blog_data= req.body
          const blog=await blog_model.create(blog_data)
-         res.status(200).json(blog_data)
+         res.status(200).json(blog)
      }
      catch(error){
-         res.status(404).json({msg:"provide name for blog"})
+         res.status(404).json({msg:"blog not created", error})
      };
  }
 
