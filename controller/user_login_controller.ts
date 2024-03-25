@@ -62,10 +62,7 @@ const create_user= async function(req:Request, res:Response)
    }
 }
 
-const add=function(a:number,b:number):number
-{
-    return a+b
-}
+
 //----------export controller----------------------------//
 
-export {verf_user,create_user,add}  
+export {verf_user,create_user}  
