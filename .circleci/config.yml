@@ -1,0 +1,13 @@
+version: 2
+jobs:
+  build:
+    docker:
+      - image: circleci/node:14
+    steps:
+      - checkout
+      - run:
+          name: Install Dependencies in My_bland
+          command: npm install
+      - run:
+          name: start my brand project
+          command: npm start
