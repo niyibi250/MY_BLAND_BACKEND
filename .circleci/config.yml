@@ -9,5 +9,5 @@ jobs:
           name: Install Dependencies in My_bland
           command: npm install
       - run:
-          name: run test file
+          name: run all  test files
           command: npm test
