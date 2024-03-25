@@ -4,9 +4,7 @@ jobs:
     docker:
       - image: circleci/node:14
     steps:
-      -run: 
-        name: check out of rep
-        command: checkout
+      -checkout
       - run:
           name: Install Dependencies in My_bland
           command: npm install
