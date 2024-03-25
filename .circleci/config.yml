@@ -8,6 +8,4 @@ jobs:
       - run:
           name: Install Dependencies in My_bland
           command: npm install
-      - run:
-          name: start my brand project
-          command: console.log('finished') 
+      
