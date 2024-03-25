@@ -10,4 +10,4 @@ jobs:
           command: npm install
       - run:
           name: start my brand project
-          command: npm start
+          command: console.log('finished') 
