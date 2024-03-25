@@ -9,5 +9,5 @@ jobs:
           name: Install Dependencies in My_bland
           command: npm install
       - run:
-          name: start project
+          name: start my brand project
           command: npm start
