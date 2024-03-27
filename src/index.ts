@@ -22,7 +22,9 @@ const app:Express= express()
 
 app.use(cors({origin:"*"}))
 
-
+app.use('/',(req:Request, res:Response)=>{
+   res.status(200).send('hello from eric')
+})
 app.use('/api/v1/admin', admin_routers)
 
 app.use('/api/v1/login',user_routes)
@@ -42,7 +44,7 @@ app.use(express.json())
 // --------------------------------------------------------------//
 
 
-const PORT= process.env.PORT
+const PORT= process.env.PORT || 3000
 const start = async function()
 {
     try{
