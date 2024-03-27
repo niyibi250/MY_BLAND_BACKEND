@@ -6,11 +6,11 @@ import cors from 'cors'
 
 import jwt from 'jsonwebtoken'
 
-import admin_routers from '../routes/admin_routes'
+import admin_routers from './routes/admin_routes'
 
-import user_routes from '../routes/user_routes'
+import user_routes from './routes/user_routes'
 
-import {connectDB} from '../db/blog_db'
+import {connectDB} from './db/blog_db'
 
 
 const app:Express= express()
