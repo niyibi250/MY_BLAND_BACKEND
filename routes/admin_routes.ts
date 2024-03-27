@@ -32,6 +32,10 @@ router.route('/contact/:id').get(get_single_contact).delete(delete_contact)
 
 router.route('/user').get(getall_user)
 router.route('user/id').get(get_single_user).delete(delete_user).patch(update_user)
+
+// ---------------------------------------------------------------------------------//
+
+router.route('/').get()
 // export routes---------------------------------------------//
 
 export default router 

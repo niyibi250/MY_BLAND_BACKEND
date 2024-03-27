@@ -89,4 +89,15 @@ const delete_blog= async function(req:Request, res:Response)
     };
 }
 
+const home_log= async function(req:Request, res:Response)
+{
+    try{
+
+        const blog=await blog_model.find({})
+        res.status(200).json({blog})
+    }
+    catch(error){
+        res.status(404).json({msg:error})
+    };
+}
 export {getall_blog, create_blog,get_single_blog, update_blog,delete_blog}
