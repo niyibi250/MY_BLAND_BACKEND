@@ -9,6 +9,3 @@ jobs:
     steps:
     - name: Checkout code
       uses: actions/checkout@v2
-
-    - name: Run a script
-      run: echo "continous integretion finished seccessfull"
