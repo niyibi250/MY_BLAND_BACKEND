@@ -43,7 +43,7 @@ app.use(express.json())
 // --------------------------------------------------------------//
 
 
-const PORT:number=3000
+const PORT=process.env.PORT||3000
 const start = async function()
 {
     try{
