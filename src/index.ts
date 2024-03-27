@@ -6,11 +6,11 @@ import cors from 'cors'
 
 import jwt from 'jsonwebtoken'
 
-import admin_routers from './routes/admin_routes'
+import admin_routers from '../routes/admin_routes'
 
-import user_routes from './routes/user_routes'
+import user_routes from '../routes/user_routes'
 
-import {connectDB} from './db/blog_db'
+import {connectDB} from '../db/blog_db'
 
 
 const app:Express= express()
@@ -23,7 +23,7 @@ const app:Express= express()
 app.use(cors({origin:"*"}))
 
 app.use('/',(req:Request, res:Response)=>{
-   res.status(200).send('hello from eric')
+   res.status(200).json({msg:'hello'})
 })
 app.use('/api/v1/admin', admin_routers)
 
