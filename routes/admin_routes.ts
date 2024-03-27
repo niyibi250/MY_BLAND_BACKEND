@@ -5,7 +5,7 @@ import express,{Router} from 'express'
 
 const router:Router= express.Router()
 
-import {getall_blog,create_blog,update_blog,get_single_blog,delete_blog} from '../controller/admin_blog_controller'
+import {getall_blog,create_blog,update_blog,get_single_blog,delete_blog,home_log} from '../controller/admin_blog_controller'
 
 import {getall_contact,create_contact, get_single_contact, delete_contact} from '../controller/admin_contact_controller'
 
@@ -35,7 +35,7 @@ router.route('user/id').get(get_single_user).delete(delete_user).patch(update_us
 
 // ---------------------------------------------------------------------------------//
 
-router.route('/').get()
+router.route('/').get(home_log)
 // export routes---------------------------------------------//
 
 export default router 

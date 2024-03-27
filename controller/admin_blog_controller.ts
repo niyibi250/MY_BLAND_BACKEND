@@ -100,4 +100,4 @@ const home_log= async function(req:Request, res:Response)
         res.status(404).json({msg:error})
     };
 }
-export {getall_blog, create_blog,get_single_blog, update_blog,delete_blog}
+export {getall_blog, create_blog,get_single_blog, update_blog,delete_blog, home_log}

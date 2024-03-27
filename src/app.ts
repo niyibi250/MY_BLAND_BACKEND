@@ -12,7 +12,6 @@ import user_routes from '../routes/user_routes'
 
 import {connectDB} from '../db/blog_db'
 
-import blog_model from '../model/blog_model'
 const app:Express= express()
 
 
@@ -22,17 +21,7 @@ const app:Express= express()
 
 app.use(cors({origin:"*"}))
 
-app.use('/', async(req: Request, res:Response)=>
-{
-    try{
-
-        const blog=await blog_model.find({})
-        res.status(200).json({blog})
-    }
-    catch(error){
-        res.status(404).json({msg:error})
-    };
-})
+app.use('/',admin_routers)
 app.use('/api/v1/admin', admin_routers)
 
 app.use('/api/v1/login',user_routes)
