@@ -1,5 +1,5 @@
 
-name: CI
+name: continous integration on mY BLAND
 
 on: push
 jobs:
