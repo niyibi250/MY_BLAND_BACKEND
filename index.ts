@@ -22,7 +22,6 @@ const app:Express= express()
 
 app.use(cors({origin:"*"}))
 
-app.use(express.static('.../UI'));
 
 app.use('/api/v1/admin', admin_routers)
 
