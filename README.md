@@ -1,67 +1,103 @@
-# Blog API
+# Potofolia Backend
 
-Welcome to the Blog API! This API allows you to manage blog posts and comments. It provides endpoints for creating, reading, updating, and deleting both blog posts and comments.
+Welcome to the backend documentation for the Potofolia project! This backend side manages the server-side logic, database interactions, and API endpoints for the Potofolia application.
 
 ## Table of Contents
 
-- [Features](#features)
-- [Endpoints](#endpoints)
-- [Authentication](#authentication)
-- [Getting Started](#getting-started)
-- [Usage](#usage)
-- [Contributing](#contributing)
-- [License](#license)
+1. [Introduction](#introduction)
+2. [Features](#features)
+3. [Technologies Used](#technologies-used)
+4. [Installation](#installation)
+5. [Configuration](#configuration)
+6. [API Endpoints](#api-endpoints)
+7. [Database Schema](#database-schema)
+8. [Contributing](#contributing)
+9. [License](#license)
+
+## Introduction
+
+Potofolia is a project aimed at providing a platform for me to showcase my Ablity online. This backend component serves as the backbone of the application, handling user authentication, portfolio management, and contact message handling.
 
 ## Features
 
-- Create, read, update, and delete blog posts
-- Create, read, update, and delete comments on blog posts
-- Authentication to protect sensitive endpoints
-- RESTful API design
-- JSON formatted responses
-- Error handling for invalid requests
+- User authentication (registration, login)
+- Contact message handling (receive and manage messages from users)
+- Secure password storage using hashing algorithms
+- RESTful API for frontend integration
+- Error handling
+- Jest testing
 
-## Endpoints
+## Technologies Used
 
-- `POST /api/posts`: Create a new blog post
-- `GET /api/posts`: Get a list of all blog posts
-- `GET /api/posts/:id`: Get details of a specific blog post
-- `PUT /api/posts/:id`: Update a specific blog post
-- `DELETE /api/posts/:id`: Delete a specific blog post
-- `POST /api/posts/:postId/comments`: Create a new comment on a blog post
-- `GET /api/posts/:postId/comments`: Get all comments on a specific blog post
-- `GET /api/posts/:postId/comments/:commentId`: Get details of a specific comment on a blog post
-- `PUT /api/posts/:postId/comments/:commentId`: Update a specific comment on a blog post
-- `DELETE /api/posts/:postId/comments/:commentId`: Delete a specific comment on a blog post
+- Node.js
+- Express.js
+- MongoDB
+- Mongoose
+- JSON Web Tokens (JWT) for authentication
+- bcrypt for password hashing
+- Winston for logging
+- Joi for request validation
+- jest for testing
 
-## Authentication
+## Installation
 
-Authentication is required for some endpoints to protect sensitive operations like creating, updating, and deleting blog posts and comments. The API uses JSON Web Tokens (JWT) for authentication. To authenticate, include the JWT token in the Authorization header of your requests.
-
-## Getting Started
-
-To get started with the Blog API, follow these steps:
+To run the Potofolia backend locally, follow these steps:
 
 1. Clone this repository to your local machine.
-2. Install dependencies by running `npm install`.
-3. Set up environment variables (e.g., database connection string, JWT secret).
-4. Start the server by running `npm start`.
+2. Navigate to the project directory.
+3. Install dependencies using `npm install`.
+4. Start the server using `npm start`.
 
-## Usage
+## Configuration
 
-Once the server is up and running, you can start sending HTTP requests to the provided endpoints using your favorite API testing tool (e.g., Postman, Insomnia). Make sure to include the required authentication token for protected endpoints.
+Before running the server, make sure to set up the necessary environment variables:
 
-Here's an example of creating a new blog post using cURL:
+- `MONGODB_URI`: MongoDB connection URI.
+- `JWT_SECRET`: Secret key for generating JWT tokens.
+- `PORT`: Port number for the server (optional, default is 3000).
 
-```bash
-curl -X POST \
-  -H "Authorization: Bearer <your_token>" \
-  -H "Content-Type: application/json" \
-  -d '{"title": "New Blog Post", "content": "Lorem ipsum dolor sit amet."}' \
-  http://localhost:3000/api/posts
+You can set these variables in a `.env` file in the project root directory.
 
+## API Endpoints
 
+### Authentication
 
-[![continous integration on mY BLAND](https://github.com/niyibi250/MY_BLAND_BACKEND/actions/workflows/cont_int_testing.yml/badge.svg?branch=FT%28backend%29-testing-with-jest-and-cicleci)](https://github.com/niyibi250/MY_BLAND_BACKEND/actions/workflows/cont_int_testing.yml)
+- `POST /api/v1/login/Registration`: Register a new user.
+- `POST /api/v1/login/login`: Log in an existing user.
 
-[![Node.js Continous Integration of MY BLAND](https://github.com/niyibi250/MY_BLAND_BACKEND/actions/workflows/cont_int_testing.yml/badge.svg)](https://github.com/niyibi250/MY_BLAND_BACKEND/actions/workflows/cont_int_testing.yml)
+### Blog Handling
+
+- `GET /api/v1/admin/blog`: Retrieve all blog.
+- `GET /api/v1/admin/blog/:id`: Retrieve a specific blog by ID.
+- `POST /api/v1/admin/blog`: Create a new blog.
+- `PATCH /api/v1/admin/blog/:id`: Update an existing blog.
+- `DELETE /api/v1/admin/blog/:id`: Delete a blog.
+
+### Contact Message Handling
+
+- `GET /api/v1/admin/contact`: Retrieve all contact messages.
+- `GET /api/v1/admin/contact/:id`: Retrieve a specific contact message by ID.
+- `DELETE /api/v1/admin/contact/:id`: Delete a contact message.
+
+### user Handling
+
+- `GET /api/v1/admin/user`: Retrieve all user messages.
+- `GET /api/v1/admin/user/:id`: Retrieve a specific user message by ID.
+- `PATCH /api/v1/admin/user/:id`: Update a user message.
+- `DELETE /api/v1/admin/user/:id`: Delete a user message.
+
+## Database Schema
+
+The backend uses MongoDB as the database, with the following schema:
+
+- User: { _id, username, email, password }
+- Portfolio: { _id, title, description, imageURL }
+- userMessage: { _id, name, email, message }
+
+## Contributing
+
+Contributions to the Potofolia project are welcome! If you would like to contribute, please fork the repository and submit a pull request with your changes.
+
+## License
+
+This project is licensed under the MIT License - see the [LICENSE](LICENSE) file for details.
