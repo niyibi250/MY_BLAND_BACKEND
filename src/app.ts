@@ -13,8 +13,13 @@ import user_routes from '../routes/user_routes'
 import {connectDB} from '../db/blog_db'
 
 
-const app:Express= express()
+export const app:Express= express()
 
+//                      swagger 
+// --------------------------------------------------------------//
+import swaggerUi from 'swagger-ui-express'
+
+import swaggerSpec from './swagger'
 
 
 //                      routes middleware
@@ -22,13 +27,13 @@ const app:Express= express()
 
 app.use(cors({origin:"*"}))
 
-app.use(express.static('.../UI'));
-
 app.use('/api/v1/admin', admin_routers)
 
 app.use('/api/v1/login',user_routes)
 
 app.use(express.json())
+app.use('/api-docs', swaggerUi.serve, swaggerUi.setup(swaggerSpec) );
+
 
 // app.use(morgan('dev'))
 
