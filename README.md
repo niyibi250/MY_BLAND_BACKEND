@@ -16,7 +16,7 @@ Welcome to the backend documentation for the Potofolia project! This backend sid
 
 ## Introduction
 
-Potofolia is a project aimed at providing a platform for me to showcase my Ablity online. This backend component serves as the backbone of the application, handling user authentication, portfolio management, and contact message handling.
+Potofolia is a project aimed at providing a platform for me to showcase my Ablity online. This backend component serves as the backbone of the application, handling user authentication, Blog management, and contact message handling.
 
 ## Features
 
@@ -91,7 +91,7 @@ You can set these variables in a `.env` file in the project root directory.
 The backend uses MongoDB as the database, with the following schema:
 
 - User: { _id, username, email, password }
-- Portfolio: { _id, title, description, imageURL }
+- Blog: { _id, title, description, imageURL }
 - userMessage: { _id, name, email, message }
 
 ## Contributing
