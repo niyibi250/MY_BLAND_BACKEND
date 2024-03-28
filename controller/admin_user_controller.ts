@@ -29,7 +29,7 @@ const get_single_user= async function(req:Request, res:Response)
    }
    catch(error)
    {
-    res.status(404).json({error})
+    res.status(404).json({msg:'the id is not founf', error})
    }
 }
 // get update user -----------------------------------------

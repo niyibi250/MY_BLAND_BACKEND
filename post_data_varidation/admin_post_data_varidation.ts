@@ -27,6 +27,7 @@ const update_blog_data_varidation=function(blog_update_data:{title?:string, phot
 {
     const blog_update_data_schrema=joi.object({
         title:joi.string().min(3),
+        categorly:joi.string().min(3),
         photo:joi.string(),
         content:joi.string().min(5),
     })

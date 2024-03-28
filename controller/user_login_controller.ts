@@ -49,12 +49,20 @@ const create_user= async function(req:Request, res:Response)
         {
             return res.status(404).json({msg:'provided data is incorrect', varide})
         }
+       const {username, password}=req.body
 
-        const user= await user_model.create(req.body)
+       const user_exist= await user_model.findOne({username:username, password:password}) 
 
-        const token= jwt.sign({user_id:user._id, username:user.username, email:user.email},'eric1234')
+       if(user_exist)
+       {
+        return res.status(404).json({msg:'user exist pls login'})
+       }
 
-        res.status(200).json({token,user})
+       const user= await user_model.create(req.body)
+
+       const token= jwt.sign({user_id:user._id, username:user.username, email:user.email},'eric1234')
+
+       res.status(200).json({token,user})
    }
    catch(error)
    {

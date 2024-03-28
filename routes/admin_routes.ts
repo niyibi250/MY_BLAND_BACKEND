@@ -19,7 +19,7 @@ router.use(express.json())
 
 // routes for blogs
 
-router.route('/blog').get(verfy_token,getall_blog).post(create_blog)
+router.route('/blog').get(getall_blog).post(create_blog)
 
 router.route('/blog/:id').get(get_single_blog).patch(update_blog).delete(delete_blog)
 
@@ -31,7 +31,7 @@ router.route('/contact/:id').get(get_single_contact).delete(delete_contact)
 // routes for User
 
 router.route('/user').get(getall_user)
-router.route('user/id').get(get_single_user).delete(delete_user).patch(update_user)
+router.route('/user/:id').get(get_single_user).delete(delete_user).patch(update_user)
 
 // ---------------------------------------------------------------------------------//
 
