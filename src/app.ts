@@ -1,6 +1,6 @@
 //                         imports
 // --------------------------------------------------------------//
-import express,{Express,Request,Response,Router} from 'express'
+import express from 'express'
 
 import cors from 'cors'
 
@@ -12,9 +12,14 @@ import user_routes from '../routes/user_routes'
 
 import {connectDB} from '../db/blog_db'
 
-const app:Express= express()
+const app= express()
 
+// swager documentantaion---------------------------------------//
+//--------------------------------------------------------------//
 
+import swaggerSpec from './swagger'
+
+import swaggerUi from 'swagger-ui-express'
 
 //                      routes middleware
 // --------------------------------------------------------------//
