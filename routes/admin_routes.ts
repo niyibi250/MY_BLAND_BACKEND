@@ -291,7 +291,7 @@ router.route('/user').get(getall_user)
  *       200:
  *         description: user deleted successfully.
  */
-router.route('user/id').get(get_single_user).delete(delete_user).patch(update_user)
+router.route('/user/:id').get(get_single_user).delete(delete_user).patch(update_user)
 // export routes---------------------------------------------//
 
 export default router 

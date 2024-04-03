@@ -25,11 +25,15 @@ const get_single_user= async function(req:Request, res:Response)
    try{
         const {id:user_id}= req.params
         const user= await user_model.findOne({_id:user_id})
+        if(!user)
+        {
+         res.status(404).json({msg:'user not found'})
+        }
         res.status(200).json({user})
    }
    catch(error)
    {
-    res.status(404).json({msg:'the id is not founf', error})
+    res.status(404).json({msg:'the sarch did not go through', error})
    }
 }
 // get update user -----------------------------------------
