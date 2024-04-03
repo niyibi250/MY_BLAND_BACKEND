@@ -13,7 +13,7 @@ import {login_data_varidation, signUp_data_varidation} from '../post_data_varida
 const verf_user= async function(req:Request, res:Response)
 {
    try{
-        const {username, password}= req.body
+        const {email, password}= req.body
         
         const valide=login_data_varidation(req.body)
         
@@ -22,7 +22,7 @@ const verf_user= async function(req:Request, res:Response)
             return res.status(404).json({msg:'JOI varidation did not go through', valide})
         }
 
-        const user= await user_model.findOne({username:username, password:password})
+        const user= await user_model.findOne({email:email, password:password})
         
         if(!user)
         {

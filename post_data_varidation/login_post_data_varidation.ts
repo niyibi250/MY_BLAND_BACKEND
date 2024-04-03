@@ -1,10 +1,10 @@
 
 import joi from 'joi'
 
-const login_data_varidation=function(login_data:{username:string, password:string})
+const login_data_varidation=function(login_data:{email:string, password:string})
 {
     const login_data_schrema=joi.object({
-        username:joi.string().min(5).required(),
+        email:joi.string().email().required(),
         password:joi.string().min(5).max(15).required(),
     })
 
