@@ -172,7 +172,7 @@ router.route('/contact').get(getall_contact).post(create_contact)
 
 /**
  * @swagger
- * /api/v1/admin/contact/:id:
+ * /api/v1/admin/contact/{id}:
  *   get:
  *     summary: Retrieve single contact
  *     description: Retrieve a single contact for given _id.
@@ -227,7 +227,7 @@ router.route('/user').get(getall_user)
 
 /**
  * @swagger
- * /api/v1/admin/user/:id:
+ * /api/v1/admin/user/{id}:
  *   get:
  *     summary: Retrieve single user
  *     description: Retrieve a single user for given _id.
