@@ -50,7 +50,7 @@
         res.status(200).json(blog)
     }
     catch(error){
-        res.status(404).json({msg:"provide name for blog"})
+        res.status(404).json({msg:`Can't find blog with id ${req.params.id}`})
     };
 }
 

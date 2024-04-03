@@ -27,6 +27,8 @@ app.use('/api/v1/admin', admin_routers)
 app.use('/api/v1/login',user_routes)
 
 app.use(express.json())
+app.use('/api-docs', swaggerUi.serve, swaggerUi.setup(swaggerSpec) );
+
 
 // app.use(morgan('dev'))
 
