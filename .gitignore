@@ -1,2 +1,4 @@
 #ignore the modele forder
 node_modules/
+
+.cicleci/

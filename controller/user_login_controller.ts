@@ -70,6 +70,7 @@ const create_user= async function(req:Request, res:Response)
    }
 }
 
+
 //----------export controller----------------------------//
 
 export {verf_user,create_user}  
