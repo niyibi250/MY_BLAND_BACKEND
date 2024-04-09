@@ -1,6 +1,8 @@
 //                  imports
 // --------------------------------------------------------------//
 
+
+
 import express,{Router} from 'express'
 
 const router:Router= express.Router()
@@ -12,7 +14,7 @@ import {getall_contact,create_contact, get_single_contact, delete_contact} from 
 
 import {getall_user, get_single_user, update_user, delete_user} from '../controller/admin_user_controller'
 
-// import verfy_token from '../verify_token/verify_token'
+import verfy_token from '../verify_token/verify_token'
 
 //                middleware
 // -----------------------------------------------------------//
@@ -57,7 +59,7 @@ router.use(express.json())
  *       201:
  *         description: Blog created successfully.
  */
-router.route('/blog').get(getall_blog).post(create_blog);
+router.route('/blog').get(getall_blog).post(verfy_token,create_blog);
 
 /**
  * @swagger
@@ -125,7 +127,7 @@ router.route('/blog').get(getall_blog).post(create_blog);
  *       200:
  *         description: Blog deleted successfully.
  */
-router.route('/blog/:id').get(get_single_blog).patch(update_blog).delete(delete_blog)
+router.route('/blog/:id').get(get_single_blog).patch(verfy_token,update_blog).delete(delete_blog)
 
 // contact routes
 // --------------------------------------------------------------------------//
@@ -166,7 +168,7 @@ router.route('/blog/:id').get(get_single_blog).patch(update_blog).delete(delete_
  *       201:
  *         description: contact created successfully.
  */
-router.route('/contact').get(getall_contact).post(create_contact)
+router.route('/contact').get(getall_contact).post(verfy_token,create_contact)
 
 //routes for the contact
 
@@ -291,7 +293,7 @@ router.route('/user').get(getall_user)
  *       200:
  *         description: user deleted successfully.
  */
-router.route('/user/:id').get(get_single_user).delete(delete_user).patch(update_user)
+router.route('/user/:id').get(get_single_user).delete(delete_user).patch(verfy_token,update_user)
 // export routes---------------------------------------------//
 
 export default router 

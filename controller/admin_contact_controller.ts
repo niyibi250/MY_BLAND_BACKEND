@@ -23,13 +23,14 @@ const getall_contact= async function(req:Request, res:Response)
 const create_contact= async function(req:Request, res:Response)
 {
    try{
-         const varidate=sent_massage_data_varidation(req.body)
+         const {message_data}=req.body
+         const varidate=sent_massage_data_varidation(message_data)
          if(varidate.error)
          {
             return res.status(404).json({msg:'the varidation did not go throught', varidate})
          }
 
-        const contact= await contact_model.create(req.body)
+        const contact= await contact_model.create(message_data)
         res.status(200).json({contact})
    }
    catch(error)

@@ -41,19 +41,20 @@ const get_single_user= async function(req:Request, res:Response)
 const update_user= async function(req:Request, res:Response)
 {
    try{
-      const varidate=update_user_data_varidation(req.body)
+      const {user_data}=req.body
+      const varidate=update_user_data_varidation(user_data)
       if(varidate.error)
       {
          return res.status(404).json({msg:'the varidation did not go throught', varidate})
       } 
        
        const {id:user_id}= req.params
-        const user= await user_model.findOneAndUpdate({_id:user_id},req.body,{new:true})
+        const user= await user_model.findOneAndUpdate({_id:user_id},req.body.user_data,{new:true})
         res.status(200).json({user})
    }
    catch(error)
    {
-    res.status(404).json({error})
+    res.status(404).json({msg:'the update did not go throuhth on server',error})
    }
 }
 

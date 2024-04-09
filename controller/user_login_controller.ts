@@ -26,12 +26,13 @@ const verf_user= async function(req:Request, res:Response)
         
         if(!user)
         {
-            return res.status(404).json({msg:'user not found'})
+            return res.json({msg:'user not found',user})
         }
-
+        
         const token=jwt.sign({user_id:user._id, username:user.username, email:user.email},'eric1234')
         
-        res.status(200).json({token, user})
+        return res.status(200).json({token, user})
+        
     }
     catch(error){
         res.status(404).json({msg:'Did not go through',error})
@@ -55,7 +56,7 @@ const create_user= async function(req:Request, res:Response)
 
        if(user_exist)
        {
-        return res.status(404).json({msg:'user exist pls login'})
+        return res.json({msg:'user exist pls login', user_exist})
        }
 
        const user= await user_model.create(req.body)

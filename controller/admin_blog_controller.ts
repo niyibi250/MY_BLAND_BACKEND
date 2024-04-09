@@ -24,13 +24,13 @@
  {
      try{
          
-        const varidate=create_blog_data_varidation(req.body)
+        const varidate=create_blog_data_varidation(req.body.blog_data)
         if(varidate.error)
         {
            return res.status(404).json({msg:'the varidation did not go throught', varidate})
         }
         
-        const blog_data= req.body
+        const {blog_data}= req.body
          const blog=await blog_model.create(blog_data)
          res.status(200).json(blog)
      }
@@ -47,6 +47,11 @@
 
         const {id:blog_id}= req.params
         const blog=await blog_model.findOne({_id:blog_id})
+
+        if(!blog)
+        {
+            return res.json({msg:'blog does not exist'})
+        }
         res.status(200).json(blog)
     }
     catch(error){
@@ -60,14 +65,14 @@ const update_blog= async function(req:Request, res:Response)
 {
     try{
 
-        const varidate=update_blog_data_varidation(req.body)
+        const varidate=update_blog_data_varidation(req.body.blog_data)
         if(varidate.error)
         {
            return res.status(404).json({msg:'the varidation did not go throught', varidate})
         }
 
         const {id:blog_id}= req.params
-        const blog=await blog_model.findOneAndUpdate({_id:blog_id},req.body,{new:true})
+        const blog=await blog_model.findOneAndUpdate({_id:blog_id},req.body.blog_data,{new:true})
         res.status(200).json(blog)
     }
     catch(error){

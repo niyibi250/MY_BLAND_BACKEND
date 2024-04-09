@@ -35,7 +35,6 @@ app.use(express.json())
 app.use('/api-docs', swaggerUi.serve, swaggerUi.setup(swaggerSpec) );
 
 
-// app.use(morgan('dev'))
 
 // *******************************
 //   get :   /api/v1/admin       *
@@ -43,6 +42,7 @@ app.use('/api-docs', swaggerUi.serve, swaggerUi.setup(swaggerSpec) );
 //   patch   /api/v1/admin       *
 //   delete  /api/v1/admin       *
 // *******************************
+
 
 //                      start server
 // --------------------------------------------------------------//
