@@ -50,9 +50,9 @@ const create_user= async function(req:Request, res:Response)
         {
             return res.status(404).json({msg:'provided data is incorrect', varide})
         }
-       const {username, password}=req.body
+       const {email, password}=req.body
 
-       const user_exist= await user_model.findOne({username:username, password:password}) 
+       const user_exist= await user_model.findOne({email:email, password:password}) 
 
        if(user_exist)
        {
