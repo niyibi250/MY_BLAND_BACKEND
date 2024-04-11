@@ -13,12 +13,13 @@ const sent_massage_data_varidation=function(message_data:{email:string, username
     return sent_message_schrema.validate(message_data)
 }
 
-const update_user_data_varidation=function(user_update:{username?:string, email?:string,password?:string})
+const update_user_data_varidation=function(user_update:{username?:string, email?:string,password?:string,time:string})
 {
     const user_update_data_schrema=joi.object({
         username:joi.string().min(3),
         email:joi.string().email(),
         password:joi.string().min(5),
+        time:joi.any()
     })
 
     return user_update_data_schrema.validate(user_update)

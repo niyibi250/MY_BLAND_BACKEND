@@ -1,4 +1,5 @@
-//-----------imports--------------------------------------//
+//---------------------------------imports--------------------------------------//
+//------------------------------------------------------------------------------//
 
 import express,{ Response,Request } from "express";
 
@@ -8,7 +9,9 @@ import user_model from '../model/user_model'
 
 import {login_data_varidation, signUp_data_varidation} from '../post_data_varidation/login_post_data_varidation'
 
-//-----------verfie if user exist--------------------------//
+
+//----------------------------verfie if user exist-------------------------------------//
+//------------------------------------------------------------------------------------//
 
 const verf_user= async function(req:Request, res:Response)
 {
@@ -39,7 +42,8 @@ const verf_user= async function(req:Request, res:Response)
     }
 }
 
-//----------create new user-------------------------------//
+//-----------------------------------create new user-------------------------------//
+//---------------------------------------------------------------------------------//
 
 const create_user= async function(req:Request, res:Response)
 {
