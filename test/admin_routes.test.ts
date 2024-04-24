@@ -1,6 +1,6 @@
 import supertest from 'supertest'
-import {app} from '../src/app'
-import { describe } from 'node:test'
+import app from '../src/app'
+import test, { describe } from 'node:test'
 import blog_model from '../model/blog_model'
 import contact_model from '../model/contact_model'
 import mongoose from 'mongoose'

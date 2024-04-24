@@ -64,4 +64,4 @@ const start = async function()
 }
 
 start()
-
+export default app
